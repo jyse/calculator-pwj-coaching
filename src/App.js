@@ -1,13 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import Calculator from "./components/Calculator";
+import { useTheme } from "./theme/useTheme";
+import { GlobalStyles } from "./theme/GlobalStyles";
+import ThemeSelector from "./components/ThemeSelector";
+import WebFont from "webfontloader";
 
 function App() {
+  const { theme, themeLoaded, getFonts } = useTheme();
+  const [selectedTheme, setSelectedTheme] = useState(theme);
+
+  useEffect(() => {
+    setSelectedTheme(theme);
+  }, []);
+
+  useEffect(() => {
+    WebFont.load({
+      google: {
+        families: getFonts(),
+      },
+    });
+  });
+
   return (
-    <Wrapper>
-      <Calculator />
-    </Wrapper>
+    <ThemeProvider theme={selectedTheme}>
+      <GlobalStyles />
+      <Wrapper>
+        <ThemeSelector setter={setSelectedTheme} />
+        <Calculator />
+      </Wrapper>
+    </ThemeProvider>
   );
 }
 
