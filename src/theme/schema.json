@@ -34,9 +34,9 @@
         },
         "font": "Ubuntu"
       },
-      "purple": {
+      "pink": {
         "id": "T_008",
-        "name": "Purple",
+        "name": "Pink",
         "colors": {
           "body": "#89BBFE",
           "text": "#AA4465",

@@ -7,34 +7,32 @@ import _ from "lodash";
 export const ThemeSelector = (props) => {
   const themesFromStore = getFromLS("all-themes");
   const [data, setData] = useState(themesFromStore.data);
+  const [themes, setThemes] = useState(_.keys(data));
   const { setMode } = useTheme();
 
-  const themeSwitcher = (selectedTheme) => {
-    setMode(selectedTheme);
-    props.setter(selectedTheme);
-  };
-
-  const ThemeCard = (props) => {
+  const Buttons = (props) => {
+    console.log(props, "what is in props at Button");
+    console.log(props.theme, "what is theme?");
     return (
-      <Wrapper>
-        <Buttons>
-          <ThemeButton
-            onClick={(theme) => themeSwitcher(props.theme)}
-            style={{
-              backgroundColor: `${data["light"].colors.body}`,
-            }}
-          ></ThemeButton>
-          <ThemeButtonDark> Dark </ThemeButtonDark>
-          <ThemeButtonCustom> Custom </ThemeButtonCustom>
-        </Buttons>
-      </Wrapper>
+      <Button
+        style={{
+          backgroundColor: `${props.theme.colors.button.background}`,
+          color: `${props.theme.colors.button.text}`,
+          fontFamily: `${props.theme.font}`,
+        }}
+      >
+        {props.theme.name}
+      </Button>
     );
   };
 
   return (
-    <div>
-      <ThemeCard theme={data["light"]} key={data["light"].id} />
-    </div>
+    <Wrapper>
+      {themes.length > 0 &&
+        themes.map((theme) => (
+          <Buttons theme={data[theme]} key={data[theme]} />
+        ))}
+    </Wrapper>
   );
 };
 
@@ -42,7 +40,7 @@ export default ThemeSelector;
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 75px;
+  height: 105px;
   background-color: rgb(0, 0, 0, 0.45);
   display: flex;
   justify-content: flex-end;
@@ -56,14 +54,14 @@ const Buttons = styled.div`
   justify-content: space-around;
 `;
 
-const ThemeButton = styled.div``;
-
-const ThemeButtonDark = styled(ThemeButton)`
-  background-color: black;
-  color: white;
-`;
-
-const ThemeButtonCustom = styled(ThemeButton)`
-  background-color: purple;
-  color: pink;
+const Button = styled.div`
+  width: 80px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  color: black;
+  margin: 10px;
+  padding: 20px;
 `;
