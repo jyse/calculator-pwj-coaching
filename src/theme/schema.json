@@ -2,13 +2,13 @@
     "data": {
       "blue": {
         "id": "T_001",
-        "name": "blue",
+        "name": "Blue",
         "colors": {
           "body": "#FFFFFF",
           "text": "#000000",
           "button": {
             "text": "#FFFFFF",
-            "background": "#000000"
+            "background": ""
           },
           "link": {
             "text": "teal",
@@ -36,13 +36,13 @@
       },
       "pink": {
         "id": "T_008",
-        "name": "Pink",
+        "name": "Purple",
         "colors": {
           "body": "#89BBFE",
           "text": "#AA4465",
           "button": {
             "text": "#EDF7D2",
-            "background": "#FCBFB7"
+            "background": "#7067CF"
           },
           "link": {
             "text": "#0d47a1",
