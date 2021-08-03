@@ -28,7 +28,7 @@ function App() {
       <GlobalStyles />
       <Wrapper>
         <ThemeSelector setter={setSelectedTheme} />
-        <Calculator />
+        <Calculator theme={selectedTheme} />
       </Wrapper>
     </ThemeProvider>
   );
@@ -37,7 +37,7 @@ function App() {
 export default App;
 
 const Wrapper = styled.div`
-  background-color: #3a4663;
+  background-color: ${({ theme }) => theme.colors.body};
   width: 100%;
   height: 100vh;
   display: flex;

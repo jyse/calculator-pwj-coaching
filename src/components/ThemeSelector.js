@@ -10,11 +10,15 @@ export const ThemeSelector = (props) => {
   const [themes, setThemes] = useState(_.keys(data));
   const { setMode } = useTheme();
 
+  const themeSwitcher = (selectedTheme) => {
+    setMode(selectedTheme);
+    props.setter(selectedTheme);
+  };
+
   const Buttons = (props) => {
-    console.log(props, "what is in props at Button");
-    console.log(props.theme, "what is theme?");
     return (
       <Button
+        onClick={(theme) => themeSwitcher(props.theme)}
         style={{
           backgroundColor: `${props.theme.colors.button.background}`,
           color: `${props.theme.colors.button.text}`,
@@ -30,7 +34,7 @@ export const ThemeSelector = (props) => {
     <Wrapper>
       {themes.length > 0 &&
         themes.map((theme) => (
-          <Buttons theme={data[theme]} key={data[theme]} />
+          <Buttons theme={data[theme]} key={data[theme].id} />
         ))}
     </Wrapper>
   );
@@ -45,13 +49,6 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-`;
-
-const Buttons = styled.div`
-  width: 350px;
-  height: 40px;
-  display: flex;
-  justify-content: space-around;
 `;
 
 const Button = styled.div`

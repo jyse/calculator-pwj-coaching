@@ -5,6 +5,9 @@
         "name": "Blue",
         "colors": {
           "body": "#FFFFFF",
+          "input": {
+            "background": "#181F33"
+          },
           "text": "#000000",
           "button": {
             "text": "#FFFFFF",
@@ -22,6 +25,9 @@
         "name": "Light",
         "colors": {
           "body": "#9be7ff",
+          "input": {
+            "background": "#181F33"
+          },
           "text": "#0d47a1",
           "button": {
             "text": "#ffffff",
@@ -36,9 +42,12 @@
       },
       "pink": {
         "id": "T_008",
-        "name": "Purple",
+        "name": "Pink",
         "colors": {
           "body": "#89BBFE",
+          "input": {
+            "background": "pink"
+          },
           "text": "#AA4465",
           "button": {
             "text": "#EDF7D2",

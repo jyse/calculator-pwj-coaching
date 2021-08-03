@@ -1,12 +1,18 @@
 import styled from "styled-components";
 
-const Calculator = () => {
+const Calculator = (props) => {
   return (
     <Wrapper>
       <Settings>
         <h2>calc</h2>
       </Settings>
-      <Input type="number" placeholder="0" />
+      <Input
+        type="number"
+        placeholder="0"
+        style={{
+          backgroundColor: `${props.theme.colors.input.background}`,
+        }}
+      />
       <Buttons>
         <Button> 7 </Button>
         <Button> 8 </Button>
