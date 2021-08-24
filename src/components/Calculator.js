@@ -1,39 +1,90 @@
 import styled from "styled-components";
+import { useState } from "react";
 
 const Calculator = (props) => {
+  const [value, setValue] = useState("");
+  const [firstValue, setFirstValue] = useState();
+  const [action, setAction] = useState("");
+
+  const getValue = (input) => {
+    let tempValue = value;
+    tempValue += input;
+    setValue(tempValue);
+    console.log(tempValue);
+  }
+
+  const getAction = (inputAction) => {
+    setAction(inputAction);
+    setFirstValue(value);
+    setValue("")
+    console.log(inputAction);
+
+  }
+
+  const getResult = () => {
+    console.log(firstValue, action, value);
+    calculateMe();
+    setValue("");
+  }
+
+  const calculateMe = () => {
+    switch (action) {
+      case 'plus':
+        let temp = parseFloat(firstValue) + parseFloat(value)
+        setValue(temp);
+        break;
+      case 'minus':
+        setValue(parseFloat(firstValue) - parseFloat(value));
+        break;
+      case 'multiply':
+        setValue(parseFloat(firstValue) * parseFloat(value));
+        break;
+      case 'divide':
+        setValue(parseFloat(firstValue) / parseFloat(value));
+        break;
+      default:
+        setValue("Should not happen");
+    }
+  }
+
   return (
     <Wrapper>
       <Settings>
         <h2>calc</h2>
       </Settings>
       <Input
-        type="number"
+        type="string"
         placeholder="0"
+        value={value ? value : firstValue}
         style={{
           backgroundColor: `${props.theme.colors.input.background}`,
         }}
       />
       <Buttons>
-        <Button> 7 </Button>
-        <Button> 8 </Button>
-        <Button> 9 </Button>
+        <Button onClick={(e) => getValue(e.target.innerText)}> 7 </Button>
+        <Button onClick={(e) => getValue(e.target.innerText)}> 8 </Button>
+        <Button onClick={(e) => getValue(e.target.innerText)}> 9 </Button>
         <DeleteButton> Del </DeleteButton>
-        <Button> 4 </Button>
-        <Button> 5 </Button>
-        <Button> 6 </Button>
-        <Button> + </Button>
-        <Button> 1 </Button>
-        <Button> 2 </Button>
-        <Button> 3 </Button>
-        <Button> - </Button>
-        <Button> . </Button>
-        <Button> 0 </Button>
-        <Button> / </Button>
-        <Button> x </Button>
-        <ResetButton>
+        <Button onClick={(e) => getValue(e.target.innerText)}> 4 </Button>
+        <Button onClick={(e) => getValue(e.target.innerText)}> 5 </Button>
+        <Button onClick={(e) => getValue(e.target.innerText)}> 6 </Button>
+        <Button onClick={() => getAction("plus")}> + </Button>
+
+        <Button onClick={(e) => getValue(e.target.innerText)}> 1 </Button>
+        <Button onClick={(e) => getValue(e.target.innerText)}> 2 </Button>
+        <Button onClick={(e) => getValue(e.target.innerText)}> 3 </Button>
+        <Button onClick={() => getAction("minus")}> - </Button>
+
+        <Button onClick={(e) => getValue(e.target.innerText)}> . </Button>
+        <Button onClick={(e) => getValue(e.target.innerText)}> 0 </Button>
+
+        <Button onClick={() => getAction("divide")}> / </Button>
+        <Button onClick={() => getAction("multiply")}> x </Button>
+
+        <ResetButton onClick={() => setValue("")}>
           <p> Reset</p>
         </ResetButton>
-        <EqualsButton>
+        <EqualsButton onClick={() => getResult()}>
           <p> = </p>
         </EqualsButton>
       </Buttons>
@@ -60,6 +111,7 @@ const Settings = styled.div`
     font-size: 32px;
     font-style: normal;
     font-weight: 700;
+    color: black;
     line-height: 36px;
     letter-spacing: -0.53px;
     text-align: center;
@@ -124,6 +176,7 @@ const Button = styled.div`
   width: 100%;
   height: 64px;
   color: #434a59;
+  cursor: pointer;
   transition: 0.3s;
 
   display: flex;
