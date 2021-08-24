@@ -11,41 +11,40 @@ const Calculator = (props) => {
     tempValue += input;
     setValue(tempValue);
     console.log(tempValue);
-  }
+  };
 
   const getAction = (inputAction) => {
     setAction(inputAction);
     setFirstValue(value);
-    setValue("")
+    setValue("");
     console.log(inputAction);
-
-  }
+  };
 
   const getResult = () => {
     console.log(firstValue, action, value);
     calculateMe();
     setValue("");
-  }
+  };
 
   const calculateMe = () => {
     switch (action) {
-      case 'plus':
-        let temp = parseFloat(firstValue) + parseFloat(value)
+      case "plus":
+        let temp = parseFloat(firstValue) + parseFloat(value);
         setValue(temp);
         break;
-      case 'minus':
+      case "minus":
         setValue(parseFloat(firstValue) - parseFloat(value));
         break;
-      case 'multiply':
+      case "multiply":
         setValue(parseFloat(firstValue) * parseFloat(value));
         break;
-      case 'divide':
+      case "divide":
         setValue(parseFloat(firstValue) / parseFloat(value));
         break;
       default:
         setValue("Should not happen");
     }
-  }
+  };
 
   return (
     <Wrapper>
@@ -98,7 +97,6 @@ const Wrapper = styled.div`
   width: 540px;
   height: 708px;
   margin-top: 75px;
-  border-radius
 `;
 
 const Settings = styled.div`
