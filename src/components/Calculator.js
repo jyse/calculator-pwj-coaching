@@ -8,29 +8,28 @@ const Calculator = (props) => {
 
   const getValue = (input) => {
     let tempValue = value;
-    tempValue += input;
+    tempValue += input; // concatenation
     setValue(tempValue);
     console.log(tempValue);
   };
 
   const getAction = (inputAction) => {
-    setAction(inputAction);
+    setAction(inputAction); // is setAction working?
     setFirstValue(value);
     setValue("");
-    console.log(inputAction);
   };
 
   const getResult = () => {
-    console.log(firstValue, action, value);
-    calculateMe();
+    calculate(firstValue, action, value);
     setValue("");
   };
 
-  const calculateMe = () => {
+  const calculate = (firstValue, action, value) => {
     switch (action) {
       case "plus":
         let temp = parseFloat(firstValue) + parseFloat(value);
         setValue(temp);
+        console.log(value, "what is the value here?");
         break;
       case "minus":
         setValue(parseFloat(firstValue) - parseFloat(value));
@@ -127,7 +126,7 @@ const Input = styled.input`
   padding: 25px;
 
   text-align: right;
-  color: white;
+  color: #242d44;
   font-size: 50px;
 
   ::-webkit-inner-spin-button {

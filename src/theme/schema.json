@@ -9,9 +9,21 @@
             "background": "#181F33"
           },
           "text": "#000000",
+          "buttons": {
+            "background": "#181F33"
+          },
           "button": {
             "text": "#FFFFFF",
-            "background": ""
+            "background": "#181F33"
+          },
+          "deleteButton": {
+            "background": "#647198"
+          },
+          "resetButton": {
+            "background": "#647198"
+          },
+          "equalButton": {
+            "background": "#D03F2F"
           },
           "link": {
             "text": "teal",
@@ -24,14 +36,26 @@
         "id": "T_007",
         "name": "Light",
         "colors": {
-          "body": "#9be7ff",
+          "body": "#82AEB1",
           "input": {
-            "background": "#181F33"
+            "background": "#E5E4E1"
           },
           "text": "#0d47a1",
+          "buttons": {
+            "background": "#D2CDCD"
+          },
           "button": {
-            "text": "#ffffff",
-            "background": "#0d47a1"
+            "text": "black",
+            "background": "#E5E4E1"
+          },
+          "deleteButton": {
+            "background": "#378187"
+          },
+          "resetButton": {
+            "background": "#378187"
+          },
+          "equalButton": {
+            "background": "#C85402"
           },
           "link": {
             "text": "#0d47a1",
@@ -44,14 +68,26 @@
         "id": "T_008",
         "name": "Pink",
         "colors": {
-          "body": "#89BBFE",
+          "body": "#B38BE4",
           "input": {
-            "background": "pink"
+            "background": "#EFC7E5"
           },
           "text": "#AA4465",
+          "buttons": {
+            "background": "#D782BA"
+          },
           "button": {
-            "text": "#EDF7D2",
-            "background": "#7067CF"
+            "text": "white",
+            "background": "#D782BA"
+          },
+          "deleteButton": {
+            "background": "#6F2DBD"
+          },
+          "resetButton": {
+            "background": "#6F2DBD"
+          },
+          "equalButton": {
+            "background": "#247B7B"
           },
           "link": {
             "text": "#0d47a1",
