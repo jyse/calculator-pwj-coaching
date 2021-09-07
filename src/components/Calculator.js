@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import { first } from "lodash";
 
 const Calculator = (props) => {
   const [value, setValue] = useState("");
@@ -8,20 +9,18 @@ const Calculator = (props) => {
 
   const getValue = (input) => {
     let tempValue = value;
-    tempValue += input; // concatenation
+    tempValue += input;
     setValue(tempValue);
-    console.log(tempValue);
   };
 
   const getAction = (inputAction) => {
-    setAction(inputAction); // is setAction working?
+    setAction(inputAction);
     setFirstValue(value);
     setValue("");
   };
 
   const getResult = () => {
     calculate(firstValue, action, value);
-    setValue("");
   };
 
   const calculate = (firstValue, action, value) => {
@@ -29,7 +28,6 @@ const Calculator = (props) => {
       case "plus":
         let temp = parseFloat(firstValue) + parseFloat(value);
         setValue(temp);
-        console.log(value, "what is the value here?");
         break;
       case "minus":
         setValue(parseFloat(firstValue) - parseFloat(value));

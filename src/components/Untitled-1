@@ -1,0 +1,9 @@
+// Checklist for debugging
+
+// 1. Start at the start!
+// 2. Make it visible.  data =>use console.log, styling => backgroundcolor
+// 3. REMEMBER: code works from TOP TO BOTTOM. PERIOD. 
+// 4. Track the story. 
+// 5. Break a big problem down in small chunks. 
+// 6. State hypothesis and test your conclusion. 
+
