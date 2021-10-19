@@ -43,6 +43,12 @@ const Calculator = (props) => {
     }
   };
 
+  const deleteLast = (value) => {
+    // grab the value
+    // slice of the last number
+    // show it inside of the display
+  };
+
   return (
     <Wrapper>
       <Settings>
@@ -60,7 +66,10 @@ const Calculator = (props) => {
         <Button onClick={(e) => getValue(e.target.innerText)}> 7 </Button>
         <Button onClick={(e) => getValue(e.target.innerText)}> 8 </Button>
         <Button onClick={(e) => getValue(e.target.innerText)}> 9 </Button>
-        <DeleteButton> Del </DeleteButton>
+        <DeleteButton onClick={(e) => deleteLast(e.target.innterText)}>
+          {" "}
+          Del{" "}
+        </DeleteButton>
         <Button onClick={(e) => getValue(e.target.innerText)}> 4 </Button>
         <Button onClick={(e) => getValue(e.target.innerText)}> 5 </Button>
         <Button onClick={(e) => getValue(e.target.innerText)}> 6 </Button>
